@@ -8,7 +8,7 @@ License: MIT and BSD
 URL:	 http://www.htslib.org
 Source0: https://github.com/samtools/htslib/archive/%{name}-%{version}.tar.gz
 
-BuildRequires: 	gcc autoconf automake  make curl-devel zlib-devel bzip2-devel
+BuildRequires: 	gcc autoconf automake  make curl-devel zlib-devel bzip2-devel xz-devel
 
 %description
 HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib only depends on zlib. It is known to be compatible with gcc, g++ and clang.
