@@ -1,6 +1,6 @@
 Name:    htslib
 Version: 1.10.2
-Release: 2
+Release: 3
 Summary: C library for high-throughput sequencing data formats
 License: MIT and BSD
 URL:	 http://www.htslib.org
@@ -24,6 +24,15 @@ Requires: %{name} = %{version}-%{release}
 %description devel
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
+
+%package tools
+Summary: Additional htslib-based tools
+Requires: %{name} = %{version}-%{release}
+
+%description tools
+Includes the popular tabix indexer, which indexes both .tbi and .csi formats,
+the htsfile identifier tool, and the bgzip compression utility.
+
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -50,16 +59,12 @@ rm -rf %{buildroot}/%{_libdir}/libhts.a
 %files
 %license LICENSE 
 %doc README NEWS README.large_positions.md
-%{_bindir}/*
 %{_libdir}/libhts.so.*
 %dir %{_libexecdir}/%{name}
 %{_libexecdir}/%{name}/hfile_gcs.so
 %{_libexecdir}/%{name}/hfile_libcurl.so
 %{_libexecdir}/%{name}/hfile_s3.so
 %{_libexecdir}/%{name}/hfile_s3_write.so
-%{_mandir}/man1/bgzip.1*
-%{_mandir}/man1/htsfile.1*
-%{_mandir}/man1/tabix.1*
 %{_mandir}/man5/faidx.5*
 %{_mandir}/man5/sam.5*
 %{_mandir}/man5/vcf.5*
@@ -71,7 +76,18 @@ rm -rf %{buildroot}/%{_libdir}/libhts.a
 %{_libdir}/libhts.so
 %{_libdir}/pkgconfig/htslib.pc
 
+%files tools
+%{_bindir}/bgzip
+%{_bindir}/htsfile
+%{_bindir}/tabix
+%{_mandir}/man1/bgzip.1*
+%{_mandir}/man1/htsfile.1*
+%{_mandir}/man1/tabix.1*
+
 %changelog
+* Wed Jun 16 2021 zhao yang <yangzhao1@kylinos.cn> - 1.10.2-3
+- Add htslib-tools package
+
 * Fri Mar 26 2021 herengui <herengui@uniontech.com> - 1.10.2-2
 - Add compilation parameters, update package lists
 
