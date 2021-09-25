@@ -6,7 +6,7 @@ License: MIT and BSD
 URL:	 http://www.htslib.org
 Source0: https://github.com/samtools/htslib/archive/%{name}-%{version}.tar.gz
 
-BuildRequires: 	gcc autoconf automake make curl-devel zlib-devel bzip2-devel xz-devel libxcrypt-devel openssl-devel
+BuildRequires: 	gcc autoconf automake make libcurl-devel zlib-devel bzip2-devel xz-devel libxcrypt-devel openssl-devel
 
 %description
 HTSlib is an implementation of a unified C library for accessing common file 
